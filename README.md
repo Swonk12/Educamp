@@ -27,8 +27,8 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 
-Colaboradores
-Agradecemos la participación y esfuerzo de todas las personas que han contribuido al desarrollo de Educamp:
+## Contributors
+We appreciate the participation and effort of everyone who has contributed to the development of Educamp:
 
 🧑‍💻 Ferran Lopez
 
