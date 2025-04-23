@@ -1,0 +1,45 @@
+<div class="filtros-container">
+  <label for="cicloSelect">Selecciona un ciclo:</label>
+  <select id="cicloSelect" [(ngModel)]="selectedCiclo" (change)="filterModules()">
+    <option value="">Todos</option>
+    <option *ngFor="let ciclo of cicles" [value]="ciclo.idCicles">
+      {{ ciclo.nombreTabla }}
+    </option>
+  </select>
+
+  <label class="checkbox-label">
+    <input
+      type="checkbox"
+      [(ngModel)]="mostrarSoloInscritos"
+      (change)="filterModules()"
+    />
+    Ocultar no inscritos
+  </label>
+</div>
+
+
+<li *ngFor="let module of filteredModules" class="modulo-card">
+  <div class="modulo-info">
+    <h3>{{ getCicleName(module.IdCicle) }} | {{ module.Nom }}</h3>
+    <p>Horas: {{ module.Hores }}</p>
+    <p>Profesor: {{ module.nomProfesor || 'Desconocido' }}</p>
+  </div>
+  <button *ngIf="isInscribed(module)" (click)="abrirModalDesinscripcion(module)" data-tooltip="Desinscribirse">
+    <i class="bi bi-dash-square"></i>
+  </button>
+  <button *ngIf="!isInscribed(module)" (click)="subscribeModule(module)" data-tooltip="Inscribirse">
+    <i class="bi bi-plus-square"></i>
+  </button>
+</li>
+
+
+<ng-template #noData>
+  <p class="no-data">No hay módulos disponibles.</p>
+</ng-template>
+<app-desinscribirse
+  *ngIf="showModal && currentUserId !== null"
+  [modul]="moduloSeleccionado"
+  [userId]="currentUserId"
+  (modalClosed)="cerrarModalDesinscripcion()">
+</app-desinscribirse>
+

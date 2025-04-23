@@ -1,0 +1,21 @@
+<div class="home-container">
+  <app-navbar class="nav"></app-navbar>
+
+  <div class="main-content">
+    <div class="sidebar">
+      <app-calendar></app-calendar>
+      <app-listuser></app-listuser>
+      <app-chat></app-chat>
+    </div>
+
+    <div class="content">
+      <div *ngIf="serveiAutenticar.isAlumne() || serveiAutenticar.isTeacher()" >
+         <app-topics></app-topics>
+      </div>
+
+      <div *ngIf="serveiAutenticar.isAdmin()" >
+        <app-gestionusuarios></app-gestionusuarios>
+      </div>
+    </div>
+  </div>
+</div>

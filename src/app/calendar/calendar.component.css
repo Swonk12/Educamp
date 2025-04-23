@@ -1,0 +1,92 @@
+/* Estilo general del calendario */
+.fc {
+  height: auto !important;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: none;
+  padding: 0.5rem;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 0.75rem;
+  width: 100%;
+}
+
+/* Día actual */
+.fc-day-today {
+  background-color: #dbeafe !important;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+/* Cabecera de los días (lun, mar, etc.) */
+.fc-col-header-cell-cushion {
+  font-weight: 600;
+  text-transform: lowercase;
+  color: #333;
+  font-size: 0.75rem;
+}
+
+/* Días del mes */
+.fc-daygrid-day {
+  height: 40px;
+  padding: 0;
+  border: none;
+  text-align: left;
+  vertical-align: top;
+  position: relative;
+}
+
+.fc-daygrid-day-frame {
+  padding: 2px;
+}
+
+/* Número del día */
+.fc-daygrid-day-number {
+  font-weight: 500;
+  font-size: 0.7rem;
+  color: #333;
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  z-index: 2;
+}
+
+/* Hover del día */
+.fc-daygrid-day:hover {
+  background-color: #f3f4f6;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Controles de navegación */
+.custom-calendar-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0 0;
+}
+
+.custom-calendar-controls button {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.custom-calendar-controls button:hover {
+  background-color: #2563eb;
+}
+
+.custom-calendar-controls span {
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: #333;
+}
+
+/* Quitar scroll vertical si existe */
+.fc-scroller-harness-liquid {
+  overflow: hidden !important;
+}

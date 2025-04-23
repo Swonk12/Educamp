@@ -1,0 +1,172 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(3px);
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 400px;
+  position: relative;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 0.4s ease-out;
+}
+
+.modal-animate {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.close-button:hover {
+  transform: scale(1.2);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.2s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.center-button {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.error-msg {
+  color: red;
+  margin-top: 0.5rem;
+}
+
+.success-msg {
+  color: green;
+  margin-top: 0.5rem;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+input[type="number"],
+select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.2s ease;
+  font-size: 1rem;
+}
+
+input[type="number"]:focus,
+select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: none;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  color: #333;
+  transition: border-color 0.2s ease;
+}
+
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+textarea[readonly] {
+  background-color: #f0f0f0;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.rating-stars {
+  display: flex;               /* Usamos flexbox para la alineación */
+  justify-content: center;     /* Centra las estrellas horizontalmente */
+  align-items: center;         /* Alinea las estrellas verticalmente */
+  margin-top: 1rem;            /* Espacio superior entre el select y las estrellas */
+}
+
+.rating-stars i {
+  font-size: 2rem;             /* Tamaño de las estrellas */
+  cursor: pointer;            /* Cursor tipo puntero para interactividad */
+  transition: color 0.3s ease; /* Efecto suave para el cambio de color */
+  color: #ccc;                /* Color gris para las estrellas vacías */
+  margin: 0 5px;               /* Espaciado entre las estrellas */
+}
+
+.rating-stars i.bi-star-fill {
+  color: #ffbc00;              /* Color dorado para las estrellas llenas */
+}
+
+.rating-stars i:hover {
+  color: #ffbc00;              /* Color dorado cuando se pasa el mouse por encima */
+}
+

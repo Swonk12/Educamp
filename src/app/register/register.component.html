@@ -1,0 +1,54 @@
+<main>
+  <div id="wave-container">
+    <object type="image/svg+xml" data="./assets/img/waves.svg" id="wave-1"></object>
+  </div>
+  <div id="overlay" class="overlay"></div>
+  <div id="loader" class="loader hidden"></div>
+  <div id="container-form">
+    <h2>Crea una cuenta</h2>
+    <form id="register-form" (ngSubmit)="onRegister()">
+      <div>
+        <input type="text" id="name" [(ngModel)]="usuari.NomComplet" name="name" class="passuser" placeholder="Nombre Completo" required>
+      </div>
+      <div>
+        <input type="email" id="email" [(ngModel)]="usuari.email" name="email" class="passuser" placeholder="Correo electronico" required>
+      </div>
+      <div>
+        <input type="text" id="username" [(ngModel)]="usuari.Username" name="username" class="passuser" placeholder="Usuario" required>
+      </div>
+      <div class="password-container">
+        <input [type]="passwordFieldType" id="password" [(ngModel)]="usuari.Contrasenya"
+               name="password" class="passuser" placeholder="Contraseña" required>
+        <button type="button" (click)="togglePassword('password')" class="toggle-password">
+          <i [class]="passwordFieldType === 'password' ? 'bi bi-eye-fill' : 'bi bi-eye-slash-fill'"></i>
+        </button>
+      </div>
+      <div class="password-container">
+        <input [type]="confirmPasswordFieldType" id="password2" [(ngModel)]="ContrasenyaConfirmada"
+               name="password2" class="passuser" placeholder="Repite la contraseña" required>
+        <button type="button" (click)="togglePassword('password2')" class="toggle-password">
+          <i [class]="confirmPasswordFieldType === 'password' ? 'bi bi-eye-fill' : 'bi bi-eye-slash-fill'"></i>
+        </button>
+      </div>
+
+      <div class="form-group-checkbox">
+        <label>
+          <input type="radio" name="role" [(ngModel)]="usuari.IdRol" value="2"> Profesor
+        </label>
+        <label>
+          <input type="radio" name="role" [(ngModel)]="usuari.IdRol" value="3"> Alumno
+        </label>
+      </div>
+      <button type="submit" id="botonLogin">Registrarse</button>
+      <a id="linkRegister" class="" href="/login">¿Ya tienes cuenta?</a>
+    </form>
+  </div>
+
+  <app-popup
+    [show]="showError"
+    [message]="errorMessage"
+    [isSuccess]="isSuccess"
+    (close)="closePopup()">
+  </app-popup>
+
+</main>

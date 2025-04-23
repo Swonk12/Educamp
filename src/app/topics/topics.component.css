@@ -1,0 +1,120 @@
+.filtros-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap; /* opcional si puede haber poco espacio en pantallas pequeñas */
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+
+.ciclo-select {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+#cicloSelect {
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.titulo-modulos {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.modulos-container {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.modulo-lista {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.modulo-card {
+  background-color: white;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 1rem;
+  transition: box-shadow 0.3s;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modulo-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.no-data {
+  color: #888;
+  font-style: italic;
+}
+
+/* Contenedor de info del módulo */
+.modulo-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* Estilo del botón con tooltip */
+.modulo-card button {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #6c757d;
+  transition: color 0.3s;
+  margin-left: 1rem;
+}
+
+.modulo-card button:hover {
+  color: #0d6efd;
+}
+
+/* Icono */
+.modulo-card button i {
+  pointer-events: none;
+}
+
+/* Tooltip */
+.modulo-card button::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: -1.8rem;
+  right: 50%;
+  transform: translateX(50%);
+  background-color: #333;
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 0.75rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 1;
+}
+
+.modulo-card button:hover::after {
+  opacity: 1;
+}

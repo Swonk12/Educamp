@@ -1,0 +1,32 @@
+<nav class="navbar">
+  <div class="left-content">
+    <div class="user-info">
+      <img [src]="serveiAutenticar.usuari?.photoURL ? serveiAutenticar.usuari.photoURL : '../../assets/img/profile.png'"
+           alt="Foto de perfil"
+           class="avatar">
+           <span class="user-name">
+            {{ serveiAutenticar.usuari?.displayName || serveiAutenticar.userName || "Usuario" }}
+            <span *ngIf="valoracionMedia !== null" class="user-rating">
+              ({{ valoracionMedia | number:'1.1-2' }} ★)
+            </span>
+          </span>
+    </div>
+  </div>
+
+  <div class="right-content">
+    <button (click)="openAnadirModulo()" *ngIf="serveiAutenticar.isAdmin() || serveiAutenticar.isTeacher" class="tooltip-button modulo" data-tooltip="Crear módulo">
+      <i class="bi bi-journal-plus"></i>
+    </button>
+
+    <button (click)="openAnadirCiclo()" *ngIf="serveiAutenticar.isAdmin || serveiAutenticar.isTeacher" class="tooltip-button curso" data-tooltip="Crear ciclo">
+      <i class="bi bi-mortarboard"></i>
+    </button>
+
+    <button (click)="logout()" class="tooltip-button logout" data-tooltip="Cerrar sesión">
+      <i class="bi bi-box-arrow-left"></i>
+    </button>
+  </div>
+</nav>
+
+<app-newcicle *ngIf="showAnadirCiclo" (close)="closeModals()"></app-newcicle>
+<app-newmodule *ngIf="showAnadirModulo" (close)="closeModals()"></app-newmodule>

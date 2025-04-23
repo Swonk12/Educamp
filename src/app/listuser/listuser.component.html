@@ -1,0 +1,14 @@
+<!-- listuser.component.html -->
+<div *ngIf="loading">Cargando usuarios activos...</div>
+
+<div *ngIf="!loading && activeUsers.length > 0">
+  <ul>
+    <li *ngFor="let user of activeUsers">
+      {{ user.Username }}
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="!loading && activeUsers.length === 0">
+  No hay usuarios activos.
+</div>

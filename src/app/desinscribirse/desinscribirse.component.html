@@ -1,0 +1,46 @@
+<div class="modal-backdrop">
+  <div class="modal-content modal-animate">
+    <button class="close-button" (click)="closeModal()">❌</button>
+    <h2>Darse de baja del módulo</h2>
+
+    <form #unsubscribeForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nom">Nombre del Módulo:</label>
+        <input type="text" id="nom" [value]="modul.Nom" disabled />
+      </div>
+
+      <div class="form-group">
+        <label for="idMotivo">Motivo de baja:</label>
+        <select id="idMotivo" [(ngModel)]="modul.Motivo" name="idMotivo" required>
+          <option [ngValue]="null" disabled selected>Selecciona un motivo</option>
+          <option *ngFor="let motivo of motivos" [ngValue]="motivo.id">{{ motivo.nom }}</option>
+        </select>
+      </div>
+
+      <div class="form-group" *ngIf="modul.Motivo === 'otro'">
+        <label for="motivoOtro">Especifica el motivo:</label>
+        <textarea id="motivoOtro" [(ngModel)]="modul.MotivoOtro" name="motivoOtro" rows="3" required></textarea>
+      </div>
+
+      <div class="form-group" *ngIf="modul.Motivo && modul.Motivo !== 'otro'">
+        <label>¿Qué te ha parecido el módulo?</label>
+
+
+        <!-- Texto opcional -->
+        <textarea [(ngModel)]="modul.ValoracionText" name="valoracionText" rows="3" placeholder="Opcional"></textarea>
+      </div>
+
+      <div class="form-group" *ngIf="modul.Motivo">
+        <div class="rating-stars">
+          <span *ngFor="let star of [1, 2, 3, 4, 5]" (click)="setValoracion(star)">
+            <i class="bi" [ngClass]="modul.Valoracion >= star ? 'bi-star-fill' : 'bi-star'"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="center-button">
+        <button type="submit" class="submit-button">Enviar</button>
+      </div>
+    </form>
+  </div>
+</div>

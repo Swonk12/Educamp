@@ -1,0 +1,6 @@
+<div *ngIf="show" class="popup-container" [ngClass]="{'success-popup': isSuccess, 'error-popup': !isSuccess}">
+  <div class="popup-message">
+    <span class="error-text">{{ message }}</span>
+    <button class="close-btn" (click)="closePopup()">✖</button>
+  </div>
+</div>

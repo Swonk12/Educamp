@@ -1,0 +1,92 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+  color: white;
+}
+
+.navbar .user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+.user-name {
+  font-weight: bold;
+  color: white;
+}
+
+button {
+  background: none;
+  border: none;
+  text-decoration: none;
+  padding: 5px;
+}
+
+button i {
+  font-size: 1.5em;
+  color: white;
+  cursor: pointer;
+}
+
+
+/* Hover de colores para los iconos */
+.modulo:hover i,
+.curso:hover i {
+  color: green; /* verde */
+}
+
+.logout:hover i {
+  color: red;
+}
+
+/* Esto asegura que el botón esté alineado a la derecha */
+.navbar .user-info button {
+  margin-left: auto;
+}
+.navbar button {
+  position: relative;
+  overflow: visible;
+}
+
+/* Tooltip */
+.navbar button::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: -2.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 200px;
+  background-color: #000;
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+  z-index: 10;
+  text-align: center;
+}
+
+/* Mostrar tooltip al hacer hover */
+.navbar button:hover::after {
+  opacity: 1;
+}
+
+/* Protección contra desborde lateral */
+.navbar {
+  position: relative;
+  overflow-x: clip;
+}
+

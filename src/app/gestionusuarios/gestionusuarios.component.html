@@ -1,0 +1,29 @@
+<div>
+  <div *ngIf="filteredUsuaris.length > 0; else noDataUsuaris" class="tabla-container">
+    <h2 class="titulo-tabla">Lista de usuarios</h2>
+    <table class="tabla-usuarios">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Username</th>
+        <th>Nombre Completo</th>
+        <th>Email</th>
+        <th>Rol</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let usuari of filteredUsuaris; let i = index">
+        <td>{{ i + 1 }}</td> <!-- Aquí empezamos en 1 -->
+        <td>{{ usuari.Username }}</td>
+        <td>{{ usuari.NomComplet }}</td>
+        <td>{{ usuari.email }}</td>
+        <td>{{ usuari.nombreRol }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noDataUsuaris>
+    <p class="no-data">No hay usuarios disponibles.</p>
+  </ng-template>
+</div>

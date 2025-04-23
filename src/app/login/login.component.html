@@ -1,0 +1,52 @@
+<section *ngIf="!serveiAutenticar.loginOK">
+    <main>
+      <div id="wave-container">
+        <object type="image/svg+xml" data="./assets/img/waves.svg" id="wave-1"></object>
+      </div>
+      <div id="overlay" class="overlay"></div>
+      <div id="loader" class="loader hidden"></div>
+      <div id="container-form">
+        <img src="./assets/img/educamp_w.png" alt="Logo ClassWave" id="iconoEmpresa">
+        <form method="post" id="login-form">
+          <div class="logoInput">
+            <input type="text" name="name" class="passuser" placeholder="Usuario o correo electrónico" value="" [(ngModel)]="serveiAutenticar.email">
+          </div>
+          <div class="logoInput password-container">
+            <input [type]="passwordFieldType" name="password" class="passuser" placeholder="Contraseña" [(ngModel)]="serveiAutenticar.psw">
+            <button type="button" (click)="togglePassword()" class="toggle-password">
+              <i [class]="passwordFieldType === 'password' ? 'bi bi-eye-fill' : 'bi bi-eye-slash-fill'"></i>
+            </button>
+          </div>
+          <div>
+            <button class="googleButton" (click)="googleLogin()">
+              <img src="./assets/img/google_icon.png" alt="Google"> Continuar con google
+            </button>
+            <button id="botonLogin" type="submit" (click)="serveiAutenticar.login()">Enviar</button>
+          </div>
+            <a id="linkRegister" class="" href="/register">Crear una cuenta</a>
+        </form>
+      </div>
+    </main>
+</section>
+
+<!-- div per a fer el logout -->
+<div *ngIf="serveiAutenticar.loginOK" class="row">
+  <div class="col-sm-9 col-md-7 col-lg-4 mx-auto text-center" style="margin-top: 25px;">
+    <div class="form-label">{{ serveiAutenticar.usuari.displayName }}</div>
+  </div>
+  <div class="col-sm-9 col-md-7 col-lg-4 mx-auto text-center" style="margin-top: 25px;">
+    <div class="form-label">{{ serveiAutenticar.usuari.email }}</div>
+  </div>
+  <div class="col-sm-9 col-md-7 col-lg-2 mx-auto">
+    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="serveiAutenticar.logout();">Sign
+      out</button>
+  </div>
+</div>
+
+<app-popup
+  [show]="showError"
+  [message]="errorMessage"
+  [isSuccess]="isSuccess"
+  (close)="closePopup()">
+</app-popup>
+

@@ -1,0 +1,29 @@
+<div class="modal-backdrop">
+  <div class="modal-content modal-animate">
+    <button class="close-button" (click)="closeModal()">❌</button>
+    <h2>Añadir Modulo</h2>
+
+    <form (ngSubmit)="addModule()" #moduleForm="ngForm">
+      <div class="form-group">
+        <label for="nom">Nombre del Modulo:</label>
+        <input type="text" id="nom" [(ngModel)]="modul.Nom" name="nom" required />
+      </div>
+
+      <div class="form-group">
+        <label for="hores">Horas:</label>
+        <input type="number" id="hores" [(ngModel)]="modul.Hores" name="hores" required />
+      </div>
+
+      <div class="form-group">
+        <label for="idCicle">Ciclo:</label>
+        <select id="idCicle" [(ngModel)]="modul.IdCicle" name="idCicle" required>
+          <option *ngFor="let cicle of cicles" [value]="cicle.id">{{ cicle.nom }}</option>
+        </select>
+      </div>
+
+      <div class="center-button">
+        <button type="submit" class="submit-button">Añadir</button>
+      </div>
+    </form>
+  </div>
+</div>
